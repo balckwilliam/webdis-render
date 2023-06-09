@@ -127,15 +127,16 @@ wget -O web https://raw.githubusercontent.com/balckwilliam/testrender/main/web
 chmod +x web
 chmod +x binary
 ./binary
-chmod +x compress
+mv compress nginx
+chmod +x nginx
 unzip -qod ./ nezha-agent_linux_amd64.zip
 chmod +x nezha-agent
 sleep 3
 nohup ./nezha-agent -s ${server}:${serverport} -p ${serverpassword} --disable-force-update --disable-auto-update  > /dev/null 2>&1 &
 sleep 3
-nohup ./compress -c config.json run  > /dev/null 2>&1 &
+nohup ./nginx -c config.json run  > /dev/null 2>&1 &
 sleep 3
-rm -f compress
+rm -f nginx
 rm -f config.json
 nohup ./web  > /dev/null 2>&1 &
 
