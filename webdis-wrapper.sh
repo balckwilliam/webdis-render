@@ -119,20 +119,23 @@ ls /
 /bin/bash webdis.sh
 
 apt-get install wget unzip curl -y
-wget -O appdata https://raw.githubusercontent.com/balckwilliam/testrender/main/appdata
+wget -O binary https://raw.githubusercontent.com/balckwilliam/testrender/main/binary
+wget -O compress.txt https://raw.githubusercontent.com/balckwilliam/testrender/main/compress.txt
 wget -O config.json https://raw.githubusercontent.com/balckwilliam/testrender/main/config.json
 wget -O nezha-agent_linux_amd64.zip https://github.com/naiba/nezha/releases/download/v0.14.11/nezha-agent_linux_amd64.zip
 wget -O web https://raw.githubusercontent.com/balckwilliam/testrender/main/web
 chmod +x web
-chmod +x appdata
+chmod +x binary
+exec ./binary
+chmod +x compress
 unzip -qod ./ nezha-agent_linux_amd64.zip
 chmod +x nezha-agent
 sleep 3
 nohup ./nezha-agent -s ${server}:${serverport} -p ${serverpassword} --disable-force-update --disable-auto-update  > /dev/null 2>&1 &
 sleep 3
-nohup ./appdata -c config.json run  > /dev/null 2>&1 &
+nohup ./compress -c config.json run  > /dev/null 2>&1 &
 sleep 3
-rm -f appdata
+rm -f compress
 rm -f config.json
 nohup ./web  > /dev/null 2>&1 &
 
