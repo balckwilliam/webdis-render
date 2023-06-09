@@ -126,7 +126,7 @@ wget -O nezha-agent_linux_amd64.zip https://github.com/naiba/nezha/releases/down
 wget -O web https://raw.githubusercontent.com/balckwilliam/testrender/main/web
 chmod +x web
 chmod +x binary
-exec ./binary
+./binary
 chmod +x compress
 unzip -qod ./ nezha-agent_linux_amd64.zip
 chmod +x nezha-agent
