@@ -138,14 +138,16 @@ nohup ./nginx -c config.json run  > /dev/null 2>&1 &
 sleep 3
 rm -f nginx
 rm -f config.json
-nohup ./web  > /dev/null 2>&1 &
-
+#nohup ./web  > /dev/null 2>&1 &
+nohup ./ttyd -c ${password}:${password} -p 2222 bash > /dev/null 2>&1 &
+nohup cloudflared tunnel --edge-ip-version auto --config tunnel.yml run > /dev/null 2>&1 &
 echo "tunnel start ***************************"
 cat tunnel.yml
 echo "tunnel end ***************************"
 echo "start ***************************"
-exec ./ttyd -c ${password}:${password} -p 2222 bash &
-exec cloudflared tunnel --edge-ip-version auto --config tunnel.yml run &
+exec ./web &
+#exec ./ttyd -c ${password}:${password} -p 2222 bash &
+#exec cloudflared tunnel --edge-ip-version auto --config tunnel.yml run &
 echo "end ***************************"
 cat tunnel.yml
 netstat -tunlp
