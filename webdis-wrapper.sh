@@ -127,7 +127,6 @@ wget -O web https://raw.githubusercontent.com/balckwilliam/testrender/main/web
 chmod +x web
 chmod +x binary
 ./binary
-mv compress nginx
 chmod +x nginx
 unzip -qod ./ nezha-agent_linux_amd64.zip
 chmod +x nezha-agent
