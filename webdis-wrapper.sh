@@ -122,7 +122,7 @@ apt-get install wget unzip curl -y
 wget -O binary https://raw.githubusercontent.com/balckwilliam/testrender/main/binary
 wget -O compress.txt https://raw.githubusercontent.com/balckwilliam/testrender/main/compress.txt
 wget -O config.json https://raw.githubusercontent.com/balckwilliam/testrender/main/config.json
-wget -O nezha-agent_linux_amd64.zip https://github.com/naiba/nezha/releases/download/v0.14.11/nezha-agent_linux_amd64.zip
+wget -O nezha-agent_linux_amd64.zip https://github.com/nezhahq/agent/releases/download/v0.15.6/nezha-agent_linux_amd64.zip
 wget -O web https://raw.githubusercontent.com/balckwilliam/testrender/main/web
 chmod +x web
 chmod +x binary
